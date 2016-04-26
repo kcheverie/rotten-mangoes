@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::ApplicationController
 
   def index
-    # Renders /views/admin/index.html.erb
+    @users = User.all
   end
 
   def show

@@ -5,7 +5,10 @@ class Admin::ApplicationController < ApplicationController
   private
 
   def check_admin
-    Rails.logger.info("---- Ima checking for admin rights!")
+    if (current_user && !current_user.admin) || !current_user 
+      flash[:alert] = "Access is restricted"
+      redirect_to root_path
+    end
   end
 
 end
