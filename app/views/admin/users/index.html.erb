@@ -1,4 +1,5 @@
 <h2>Users</h2>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -18,4 +19,12 @@
   <% end %>    
   </tbody>
 </table>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 text-center">
+   <%= paginate @users %>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
 
