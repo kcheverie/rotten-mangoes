@@ -1,12 +1,15 @@
-<h1 class="text-center">Rotten Mangoes</h1>
+<p class="text-center"><%= link_to "Submit a movie!", new_movie_path, :class =>"btn btn-custom" %></p>
 <br>
-  <p class="text-center"><%= link_to "Submit a movie!", new_movie_path, :class =>"btn btn-custom" %></p>
-<br>
+
   <% @movies.each do |movie| %>
-    <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-    <h2><%= link_to movie.title, movie_path(movie) %></h2>
-    <h3><%= formatted_date(movie.release_date) %></h3>
-    <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-    <p><%= movie.description %></p>
-    <hr>
+  <div class="row">
+    <div class="col-md-4 image-container"><%= image_tag movie.image %></div>
+    <div class="col-md-8">
+      <h2><%= link_to movie.title, movie_path(movie) %></h2>
+      <h3><%= formatted_date(movie.release_date) %></h3>
+      <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+      <p><%= movie.description %></p>
+    </div>    
+  </div> 
+  <hr>
   <% end %>
