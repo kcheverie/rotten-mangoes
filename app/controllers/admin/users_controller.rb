@@ -5,7 +5,7 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def show
-    render text: 'An admin is you'
+    @user = User.find(params[:id])
   end
 
 
