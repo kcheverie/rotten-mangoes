@@ -33,6 +33,9 @@ gem 'simple_form'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 
+gem 'kaminari'
+
+gem 'faker'
 # NOTE: The sass-rails gem is included with new Rails applications by default.
 #       Please make sure that it is not already in your Gemfile before uncommenting it.
 gem 'sass-rails'

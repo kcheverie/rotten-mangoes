@@ -1,0 +1,31 @@
+<h2>User Details</h2>
+<div class="row">
+  <div class="col-sm-3"><p>First name:</p></div>
+  <div class="col-sm-8"><p><%=@user.firstname%></p></div>
+
+  <div class="col-sm-3"><p>Last name:</p></div>
+  <div class="col-sm-8"><p><%=@user.lastname%></p></div>
+
+  <div class="col-sm-3"><p>Email:</p></div>
+  <div class="col-sm-8"><p><a href="mailto:<%=@user.email%>"><%=@user.email%></a></p></div>
+
+  <div class="col-sm-3"><p>Admin?</p></div>
+  <div class="col-sm-8"><p><%if @user.admin %>Yes<% else %> No <% end %></p></div>
+
+  <div class="col-sm-3"><p>Signup Date:</p></div>
+  <div class="col-sm-8"><p><%=@user.created_at.to_date%></p></div>
+
+</div>
+
+<hr>
+<h2>User Reviews</h2>
+<%if @user.reviews == [] %>
+  <p>No reviews posted</p>
+<% else %>
+  <%@user.reviews.each do |review|%>
+    <p><em><%=review.text%></em></p>
+    <p class="text-right">Rating: <%=review.rating_out_of_ten%>/10 | <b><%= link_to review.movie.title, movie_path(review.movie) %></b></p>
+  <% end %>
+<% end %>
+
+
