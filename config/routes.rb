@@ -7,6 +7,12 @@ RottenMangoes::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root to: 'movies#index'
 
+
+  namespace :admin do
+    # This will look for /app/controllers/admin/users_controller.rb,
+    # and all views should be under /app/views/admin/users/
+      resources :users
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,9 +62,9 @@ RottenMangoes::Application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+    # namespace :admin do
+    #   # Directs /admin/products/* to Admin::ProductsController
+    #   # (app/controllers/admin/products_controller.rb)
+    #   resources :products
+    # end
 end
