@@ -1,0 +1,61 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Bad+Script);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900,300);
+
+$colorOne:#ff9633;
+$colorTwo:#291108;
+$displayFont:'Bad Script', cursive;
+$bodyFont:'Lato', sans-serif;
+
+
+body {
+  background-color:$colorOne;
+  font-family: $bodyFont;
+  font-size:16px;
+  color:$colorTwo;
+}
+
+.white {
+  background-color:white;
+}
+a {
+  color:$colorTwo;
+}
+h1 {
+  font-family:$displayFont;
+  color:$colorTwo;
+  font-size:60px;
+}
+
+h2 {
+  font-weight:900;
+}
+
+.btn-custom {
+  background-color:$colorOne;
+  color:white;
+  font-size:20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding:10px;
+  transition:background-color .5s;
+  &:hover{
+    background-color:darken( $colorOne, 10% );
+    color:white;
+  }
+}
+
+footer {
+  background-color:$colorTwo;
+  color:white;
+  padding:10px;
+  a {
+    color:$colorOne;
+    font-weight:900;
+    &:hover {
+      color: $colorOne;
+      text-decoration: none;
+    }
+  }
+}
