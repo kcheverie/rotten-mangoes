@@ -5,11 +5,9 @@
 <%= form_tag(movies_path, method: "get", id:"search-form") do %>
 <div class="form-group">
   <div class="col-sm-4">
-  <%= text_field_tag :title, params[:title], placeholder: "Search Titles", class: "form-control"  %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Titles", class: "form-control"  %>
   </div>
-  <div class="col-sm-4">
-  <%= text_field_tag :director, params[:director], placeholder: "Search Directors", class: "form-control"  %>
-  </div>
+
 </div>
 <div class="form-group">
   <div class="col-sm-12">
