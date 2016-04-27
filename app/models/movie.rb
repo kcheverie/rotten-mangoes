@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+
   mount_uploader :image, ImageUploader
   
   has_many :reviews
@@ -23,9 +24,13 @@ class Movie < ActiveRecord::Base
 
   validate :release_date_is_in_the_past
   
-  def self.search(search)
-    if search
-      where.('title LIKE ?', "%#{search}%")
+  def self.search(title, director)
+    if title && director
+      Movie.where('title LIKE ? AND director LIKE ?', "%#{title}%", "%#{director}%")
+    elsif title
+      Movie.where('title LIKE ?', "%#{title}%")
+    elsif director
+      Movie.where('director LIKE ?', "%#{director}%")
     end
   end
   
