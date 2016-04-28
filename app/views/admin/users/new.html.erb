@@ -1,4 +1,4 @@
-<h2>Sign Up</h2>
+<h1>Add User</h1>
 <div class="form-horizontal">
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
@@ -18,33 +18,41 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :firstname, "First Name", class: "control-label col-sm-4" %>
+    <%= f.label :firstname, "First Name", class: "control-label col-sm-4"  %>
     <div class="col-sm-8">
     <%= f.text_field :firstname, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :lastname, "Last Name", class: "control-label col-sm-4" %>
+    <%= f.label :lastname, "Last Name", class: "control-label col-sm-4"  %>
     <div class="col-sm-8">
     <%= f.text_field :lastname, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :password, class: "control-label col-sm-4" %>
+    <%= f.label :password, class: "control-label col-sm-4"  %>
     <div class="col-sm-8">
     <%= f.password_field :password, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :password_confirmation, class: "control-label col-sm-4" %>
-    <div class="col-sm-8">
-    <%= f.password_field :password_confirmation, class: "form-control" %>
+    <%= f.label :password_confirmation, class: "control-label col-sm-4"  %>
+   <div class="col-sm-8">
+   <%= f.password_field :password_confirmation, class: "form-control" %>
+   </div>
+  </div>
+  <div class="form-group">
+   <div class="col-sm-offset-4 col-sm-8">
+    <div class="checkbox">
+      <label>
+         <%= f.check_box :admin %>  Grant Admin Status
+      </label>
     </div>
-
+   </div>
   </div>
   <div class="form-group">
   <div class="col-sm-offset-4 col-sm-8">
-    <%= f.submit "Submit", class: "btn btn-custom" %>
+  <%= f.submit "Submit", class: "btn btn-custom" %>
   </div>
   </div>
 <% end %>
