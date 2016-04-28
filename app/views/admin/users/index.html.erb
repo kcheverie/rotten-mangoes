@@ -19,6 +19,11 @@
     <td nowrap><%= link_to user.full_name, admin_user_path(user) %></td>
     <td><%=user.email%></td>
     <td nowrap><%=formatted_date(user.created_at)%></td>
+    <td>
+      <% if user.admin? %>
+      <p class="text-success">Admin</p>
+      <% end %>
+    </td>
     <td><%= link_to "Edit", edit_admin_user_path(user), class: "btn btn-default"%></td>
     <td><%= link_to "X", admin_user_path(user), method: :delete, data: {confirm: "You sure?"}, class: "btn btn-danger"%></td>
   </tr>
