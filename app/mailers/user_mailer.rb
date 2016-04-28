@@ -5,4 +5,10 @@ class UserMailer < ActionMailer::Base
     @url = 'http://www.google.com'
     mail(to: @user.email, subject: 'test welcome email')
   end
+
+  def delete_email(user)
+    @user = user
+    @url = '/users/new'
+    mail(to: @user.email, subject: 'test delete email')
+  end
 end
