@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-4 image-container">
+
+  <%= image_tag @movie.image %> 
+  </div>
+  <div class="col-md-8">
+    <h2><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, data: {confirm: "You sure?"} %>)</h2>
+    <h3><%= formatted_date(@movie.release_date) %></h3>
+    <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
+    <% if @movie.reviews == [] %>
+    <p>No ratings yet!</p>
+    <% else %>
+    <p><%= @movie.review_average %>/10</p>
+    <% end %>
+    <p><%= @movie.description %></p>    
+  </div>
+ 
+</div>
+
+<hr> 
