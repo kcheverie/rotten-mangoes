@@ -3,7 +3,7 @@
   <small>
     <% if current_user %>
       <div class="col-md-8">
-      Signed in as <%= current_user.full_name %> | <%= link_to "Log out", session_path("current"), method: :delete %>
+      Signed in as <%= current_user.full_name %> | <%= link_to "Log out", session_path, method: :delete %>
       </div>
       <% if current_user.admin? %>
       <div class="col-md-4 text-right">
