@@ -1,15 +1,15 @@
 class UserMailer < ActionMailer::Base
-<<<<<<< HEAD
-  default from: "kcheverie@gmail.com"
+
+  default from: "accounts@rottenmangoes.com"
+
   def welcome_email(user)
     @user = user
-    @url = 'http://www.google.com'
-    mail(to: @user.email, subject: 'test welcome email')
+    mail(to: @user.email, subject: 'Welcome to Rotten Mangoes')
   end
 
   def delete_email(user)
     @user = user
     @url = '/users/new'
-    mail(to: @user.email, subject: 'test delete email')
+    mail(to: @user.email, subject: 'Account Deletion Notice')
   end
 end
