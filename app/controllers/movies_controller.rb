@@ -56,7 +56,7 @@ class MoviesController < ApplicationController
   private 
 
   def filtering_params(params)
-    params.slice(:title, :director, :runtime_in_minutes)
+    params.slice(:text, :runtime_in_minutes)
   end
 
 end
