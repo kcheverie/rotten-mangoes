@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <small>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+          <div class="row">
+            <div class="col-sm-6 text-left">
+              <% if current_user %>
+                <%= current_user.full_name %> 
+                <% if current_user.admin? %>
+                  | <%= link_to "Admin Panel", admin_users_path %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="col-sm-6 text-right">
+              <% if current_user %>
+              <%= link_to "Log out", session_path, method: :delete %>
+              <% else %>
+                <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+              <% end %>
+            </div> 
+          </div>     
+        </div>
+        <div class="col-sm-1"></div>
+      </small>
+    </div>  
+  </div>
+</header>

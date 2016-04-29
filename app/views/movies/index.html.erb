@@ -1,56 +1,42 @@
-<p class="text-center"><%= link_to "Submit a movie!", new_movie_path, :class =>"btn btn-custom" %></p>
-<br>
+<br/>
+<div class="form-horizontal">
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <h4 class="panel-title"><span class="glyphicon glyphicon-plus"></span> Filter</h4>
-        </a>
+
+  <%= form_tag(movies_path, method: "get", id:"search-form") do %>
+  <div class="form-group">
+
+    <div class="col-sm-5">
+    <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+          <%= text_field_tag :text, params[:text], class: "form-control", name: "text" %>
+        </div>
+
+    </div>
+    <div class="col-sm-3">
       
+      <%= select_tag(:runtime_in_minutes, 
+      options_for_select([
+        ['All runtimes', "All"], 
+        ['Under 90 minutes', "< 90"], 
+        ['Between 90 and 120 minutes', "90-120"], 
+        ['Over 120 minutes', "120+"]
+      ]), 
+      class: "form-control", name: "runtime_in_minutes") %>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-
-      <div class="form-horizontal">
-        <div class="form-group">
-          <div class="col-sm-12 text-left">
-            <%= link_to "All Movies", movies_path, class: "btn btn-default" %>
-          </div>
-        </div>
-
-        <%= form_tag(movies_path, method: "get", id:"search-form") do %>
-        <div class="form-group">
-
-          <div class="col-sm-6">
-          <%= text_field_tag :text, params[:text], placeholder: "Text Search", class: "form-control", name: "text" %>
-          </div>
-          <div class="col-sm-3">
-            
-            <%= select_tag(:runtime_in_minutes, 
-            options_for_select([
-              ['All runtimes', "All"], 
-              ['Under 90 minutes', "< 90"], 
-              ['Between 90 and 120 minutes', "90-120"], 
-              ['Over 120 minutes', "120+"]
-            ]), 
-            class: "form-control", name: "runtime_in_minutes") %>
-          </div>
-          <div class="col-sm-3 text-right">
-        <%= button_tag "Search", :name => nil, class: "btn btn-warning" %>
-          </div>
-
-        </div>
-
-      <% end %>
-      </div>
-      <hr>
-
-      </div>
+    <div class="col-sm-2">
+      <%= button_tag "Filter", :name => nil, class: "btn btn-warning" %>
     </div>
+    <div class="col-sm-2 text-right">
+      <%= link_to "All Movies", movies_path, class: "btn btn-default" %>
+    </div>
+
   </div>
 
+<% end %>
 </div>
+<hr>
+
+
 
 
 

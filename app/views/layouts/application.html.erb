@@ -8,26 +8,37 @@
 </head>
 <body>
 <div class="row">
-<div class="col-md-2"></div>
-<div class="col-md-8 white">
+<div class="col-md-12">
+  <%= render 'layouts/header' %>  
+</div>
+</div>
+<div class="container">
 <div class="row">
-<div class="col-md-1"></div>
-<div class="col-md-10">
-<h1 class="text-center"><a href="/">Rotten Mangoes</a></h1>
-<br>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:p, value) %>
-  <% end %>
-  <%= yield %>
-</div>
-<div class="col-md-2"></div>
-</div>
+<div class="col-md-12 white">
 <div class="row">
-  <%= render 'layouts/footer' %>
-</div>
-</div>
-<div class="col-md-1"></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+    <div class="col-md-6">
+    <h1 class="text-left"><a href="/">rotten<br/>mangoes</a></h1>
+    </div>
+    <div class="col-md-6 text-right">
+    <br>
+      <%= link_to "Submit a movie!", new_movie_path, :class =>"btn btn-custom" %>
+
+    </div>
+    </div>
+  <br>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:p, value) %>
+    <% end %>
+    <%= yield %>
+  </div>
+  <div class="col-md-2"></div>
 </div>
 
+</div>
+</div>
+</div>
 </body>
 </html>
