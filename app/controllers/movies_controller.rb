@@ -1,10 +1,9 @@
 class MoviesController < ApplicationController
 
   def index
-    if params[:search]
-      @movies = Movie.search(params[:search])
-    else
-      @movies = Movie.all
+    @movies = Movie.where(nil)
+    filtering_params(params).each do |key, value|
+      @movies = @movies.public_send(key, value) if value.present?
     end
   end
 
@@ -52,6 +51,12 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(
       :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description, :image
     )
+  end
+
+  private 
+
+  def filtering_params(params)
+    params.slice(:title, :director, :runtime_in_minutes)
   end
 
 end
