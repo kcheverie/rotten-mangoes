@@ -1,4 +1,16 @@
 class Movie < ActiveRecord::Base
+  scope :title, -> (title) { where('title LIKE ?', "%#{title}%") }
+  scope :director, -> (director) { where('director LIKE ?', "%#{director}%") }
+  scope :runtime_in_minutes, -> (runtime_in_minutes) { 
+    case runtime_in_minutes
+      when "< 90"
+       where("runtime_in_minutes < ?", 90)
+      when "90-120"
+        where("runtime_in_minutes >= ? AND runtime_in_minutes <= ?", 90, 120)
+      when "120+"
+        where("runtime_in_minutes > ?", 120)
+      end
+  }
 
   mount_uploader :image, ImageUploader
   
@@ -23,27 +35,6 @@ class Movie < ActiveRecord::Base
     presence: true
 
   validate :release_date_is_in_the_past
-  
-  def self.search(search_params)
-    @movies = Movie.all
-    case search_params[:runtime_in_minutes]
-      when "< 90"
-        @movies = @movies.where("runtime_in_minutes < ?", 90)
-      when "90-120"
-        @movies = @movies.where("runtime_in_minutes >= ? AND runtime_in_minutes <= ?", 90, 120)
-      when "120+"
-        @movies = @movies.where("runtime_in_minutes > ?", 120)
-      end
-    title =  search_params[:title]
-    director = search_params[:director]
-    if !title.blank?
-      @movies = @movies.where('title LIKE ?', "%#{title}%")
-    end
-    if !director.blank?
-      @movies = @movies.where('director LIKE ?', "%#{director}%")
-    end
-    @movies
-  end
   
   def review_average
       reviews.sum(:rating_out_of_ten)/reviews.size

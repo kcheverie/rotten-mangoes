@@ -22,10 +22,10 @@
         <%= form_tag(movies_path, method: "get", id:"search-form") do %>
         <div class="form-group">
           <div class="col-sm-3">
-          <%= text_field_tag :title, params[:title], placeholder: "All Titles", class: "form-control", name: "search[title]"  %>
+          <%= text_field_tag :title, params[:title], placeholder: "All Titles", class: "form-control", name: "title"  %>
           </div>
           <div class="col-sm-3">
-          <%= text_field_tag :director, params[:director], placeholder: "All Directors", class: "form-control", name: "search[director]" %>
+          <%= text_field_tag :director, params[:director], placeholder: "All Directors", class: "form-control", name: "director" %>
           </div>
           <div class="col-sm-3">
             
@@ -36,7 +36,7 @@
               ['Between 90 and 120 minutes', "90-120"], 
               ['Over 120 minutes', "120+"]
             ]), 
-            class: "form-control", name: "search[runtime_in_minutes]") %>
+            class: "form-control", name: "runtime_in_minutes") %>
           </div>
           <div class="col-sm-3 text-right">
         <%= button_tag "Search", :name => nil, class: "btn btn-warning" %>
