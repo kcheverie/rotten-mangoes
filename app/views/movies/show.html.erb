@@ -1,9 +1,11 @@
-<nav>
-  <ul class="pager">
-    <li class="previous"><%= link_to "Back to all Movies", movies_path %></li>
-  </ul>
-</nav>
-
+<div class="row">
+  <div class="col-md-12">
+    <small>
+      <%= link_to "Movies", movies_path %>  / <%=@movie.title%>
+    </small>
+    <br><br>
+  </div>
+</div>
 
 
 <%= render 'movie' %>

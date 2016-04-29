@@ -1,4 +1,10 @@
-<%= link_to "Back to this movie", movie_path(@movie) %>
+<div class="row">
+  <div class="col-md-12">
+    <small>
+      <%= link_to "Movies", movies_path %>  / <%=link_to @movie.title, movie_path(@movie)%> / Edit Movie
+    </small>
+    <br><br>
+  </div>
+</div>
 
-<h2>Edit this movie.</h2>
 <%= render 'form' %>

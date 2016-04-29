@@ -1,4 +1,10 @@
-<%= link_to "Back to all movies", movies_path %>
+<div class="row">
+  <div class="col-md-12">
+    <small>
+      <%= link_to "Movies", movies_path %> / Submit a new Movie
+    </small>
+    <br><br>
+  </div>
+</div>
 
-    <h2 class="text-center">Submit a movie!</h2>
     <%= render 'form' %>
