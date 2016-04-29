@@ -1,6 +1,12 @@
-<%= link_to "Back to movie", movie_path(@movie) %><br/>
+<div class="row">
+  <div class="col-md-12">
+    <small>
+      <%= link_to "Movies", movies_path %>  / <%=link_to @movie.title, movie_path(@movie)%> / Write a review
+    </small>
+    <br><br>
+  </div>
+</div>
 
-<h2>Write a review of <em><%= @movie.title %></em>.</h2>
 
 <div class="form-horizontal">
 <%= form_for([@movie, @review]) do |f| %>
