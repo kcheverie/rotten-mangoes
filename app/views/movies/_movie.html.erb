@@ -13,7 +13,7 @@
     <% if @movie.reviews == [] %>
     <p>No ratings yet!</p>
     <% else %>
-    <p><%= @movie.review_average %>/10</p>
+    <p><%=@movie.reviews.length%> Review<% if @movie.reviews.length > 1 %>s<% end %> | Average Rating: <%= @movie.review_average %>/10</p>
     <% end %>
     <p><%= @movie.description %></p>    
   </div>

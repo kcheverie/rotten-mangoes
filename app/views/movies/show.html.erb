@@ -12,18 +12,17 @@
 
 <h3>Reviews of <em><%= @movie.title %></em></h3>
 <% if current_user %>
-<div class="well">
   <% if @movie.reviews == [] %>
   No reviews yet!
   <% end %>
   <% @movie.reviews.each do |review| %>
+  <div class="well">
 
     <p><%= review.text %></p>
     <p>Rating: <strong><%= review.rating_out_of_ten %>/10</strong></p>
     <p class="text-right"><small>- <%= review.user.full_name %></small></p>
-
+    </div>
   <% end %>
-  </div>
   <p class="text-right"><%= link_to "Write a review!", new_movie_review_path(@movie), class: "btn btn-custom" %></p>
 <% else %>
   <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p> 
